@@ -18,33 +18,26 @@ const Navbar = () => {
           Siddhant<span className="text-blue-500">.dev</span>
         </h1>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center text-gray-300">
           {links.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                isActive
-                  ? "text-blue-500 font-semibold"
-                  : "hover:text-blue-400 transition"
+                isActive ? "text-blue-500 font-semibold" : "hover:text-blue-400"
               }
             >
               {link.name}
             </NavLink>
           ))}
-
-          {/* Resume Button */}
           <a
             href="/resume.pdf"
-            download
-            className="px-4 py-2 bg-blue-500 text-black rounded-lg font-semibold hover:bg-blue-400 transition"
+            className="px-4 py-2 bg-blue-500 text-black rounded-lg font-semibold"
           >
             Resume
           </a>
         </ul>
 
-        {/* Mobile Toggle */}
         <button
           className="md:hidden text-white text-2xl"
           onClick={() => setOpen(!open)}
@@ -53,7 +46,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-black px-6 pb-4">
           {links.map((link) => (
@@ -61,20 +53,11 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               onClick={() => setOpen(false)}
-              className="block py-2 text-gray-300 hover:text-blue-400"
+              className="block py-2 text-gray-300"
             >
               {link.name}
             </NavLink>
           ))}
-
-          {/* Mobile Resume Button */}
-          <a
-            href="/resume.pdf"
-            download
-            className="block mt-3 px-4 py-2 bg-blue-500 text-black rounded-lg font-semibold text-center"
-          >
-            Resume
-          </a>
         </div>
       )}
     </nav>

@@ -1,88 +1,108 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const formRef = useRef();
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAIL_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAIL_PUBLIC_KEY
-      )
-      .then(() => {
-        setLoading(false);
-        alert("Message sent successfully 🚀");
-        formRef.current.reset();
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.error("EmailJS Error:", error);
-        alert("Failed to send message ❌");
-      });
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-900 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-lg bg-gray-800 p-8 rounded-2xl shadow-lg"
-      >
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">
-          Contact Me
-        </h2>
+    <section className="relative py-24 bg-aboutSection text-gray-300">
+      <div className="max-w-6xl mx-auto px-6">
 
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="w-full p-3 rounded-lg bg-gray-700 text-white outline-none"
-          />
+        {/* ===== Heading ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold text-white mb-2">Get In Touch</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Let's Work Together<br />
+            Have a project in mind or want to collaborate? Feel free to reach out!
+          </p>
+        </motion.div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="w-full p-3 rounded-lg bg-gray-700 text-white outline-none"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-          <input
-            type="text"
-            name="title"
-            placeholder="Subject"
-            required
-            className="w-full p-3 rounded-lg bg-gray-700 text-white outline-none"
-          />
-
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message"
-            required
-            className="w-full p-3 rounded-lg bg-gray-700 text-white outline-none"
-          ></textarea>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 transition text-white py-3 rounded-lg font-semibold disabled:opacity-50"
+          {/* ===== Contact Form ===== */}
+          <motion.form
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-[#020617] p-8 rounded-xl shadow-lg flex flex-col gap-6"
           >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-      </motion.div>
+            <input
+              type="text"
+              placeholder="Name"
+              className="bg-[#0b0f1a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="bg-[#0b0f1a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+              defaultValue="siddhantgupta0304@gmail.com"
+            />
+            <textarea
+              placeholder="Message"
+              rows={6}
+              className="bg-[#0b0f1a] border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition resize-none"
+            ></textarea>
+            <button
+              type="submit"
+              className="bg-cyan-500 text-black font-semibold py-3 rounded-lg hover:bg-cyan-400 transition"
+            >
+              Send Message
+            </button>
+          </motion.form>
+
+          {/* ===== Contact Info ===== */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-6"
+          >
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-2">Contact Information</h3>
+              <p className="text-gray-400 mb-4">
+                I typically respond within 24 hours. Available for freelance projects.
+              </p>
+              <div className="flex flex-col gap-3 text-gray-300">
+                <div><span className="font-semibold">Email:</span> siddhantgupta0304@gmail.com</div>
+                <div><span className="font-semibold">Phone:</span> +91-9589530325</div>
+                <div><span className="font-semibold">Location:</span> India</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-2">Social Links</h3>
+              <div className="flex gap-4 mt-2">
+                <a
+                  href="https://www.linkedin.com/in/siddhant-gupta-b7730930a/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 transition"
+                >
+                  <Linkedin size={24} />
+                </a>
+                <a
+                  href="https://github.com/Siddhantgupta0340"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 transition"
+                >
+                  <Github size={24} />
+                </a>
+                <a
+                  href="mailto:siddhantgupta0304@gmail.com"
+                  className="hover:text-cyan-400 transition"
+                >
+                  <Mail size={24} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
     </section>
   );
 };

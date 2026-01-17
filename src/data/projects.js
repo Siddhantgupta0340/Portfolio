@@ -1,27 +1,23 @@
 const projects = [
   {
-    title: "Sensei – AI Career Coach",
+    id: 1,
+    title: "Crypto Dashboard",
     description:
-      "AI-powered career guidance platform built using Next.js, Prisma ORM, Clerk authentication, and Gemini AI. Helps users get personalized career roadmaps.",
-    tech: ["Next.js", "React", "Tailwind", "Prisma", "Gemini AI"],
-    github: "https://github.com/",
-    live: "https://sensei.vercel.app",
+      "A real-time cryptocurrency dashboard showing live prices, market stats, charts, and trends built with modern web technologies.",
+    image: "https://crypto-dashboard-jan-wine.vercel.app/og.png", // fallback/preview
+    tech: ["React", "Tailwind CSS", "API", "Charts"],
+    live: "https://crypto-dashboard-jan-wine.vercel.app/",
+    github: "https://github.com/yourusername/crypto-dashboard", // replace
   },
   {
-    title: "Cryptocurrency Price Tracker",
+    id: 2,
+    title: "Tejas Co (Sample)",
     description:
-      "Real-time crypto price tracking application using public APIs with clean UI and responsive design.",
-    tech: ["React", "JavaScript", "API", "Tailwind"],
-    github: "https://github.com/",
-    live: "#",
-  },
-  {
-    title: "Live American News App",
-    description:
-      "News application using NewsAPI with category-wise news, infinite scrolling, and dark mode support.",
-    tech: ["React", "NewsAPI", "Bootstrap"],
-    github: "https://github.com/",
-    live: "#",
+      "A clean and professional portfolio & company site template with modern UI design and responsive layout.",
+    image: "https://tejas-co.vercel.app/og.png", // fallback/preview
+    tech: ["HTML", "CSS", "JavaScript", "Responsive"],
+    live: "https://tejas-co.vercel.app/",
+    github: "https://github.com/yourusername/tejas-co", // replace
   },
 ];
 
